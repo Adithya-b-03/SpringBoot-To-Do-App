@@ -1,5 +1,6 @@
-package adithya.demo.Todo;
+package adithya.demo.Todo.controllers;
 
+import adithya.demo.Todo.services.TodoService;
 import adithya.demo.Todo.models.Todo;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -18,7 +19,7 @@ public class TodoController {
     private TodoService todoService;
     @PostMapping("/create")
     ResponseEntity<Todo> createTodo(@RequestBody Todo ent){
-        return new ResponseEntity<>(todoService.creteTodo(ent), HttpStatus.CREATED);
+        return new ResponseEntity<>(todoService.createTodo(ent), HttpStatus.CREATED);
     }
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",description = "todo retrieved successfully"),

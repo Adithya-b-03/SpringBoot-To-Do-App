@@ -1,4 +1,4 @@
-package adithya.demo.Todo;
+package adithya.demo.Todo.repositories;
 
 import adithya.demo.Todo.models.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
