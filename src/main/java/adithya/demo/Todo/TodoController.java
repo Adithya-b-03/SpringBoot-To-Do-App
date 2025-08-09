@@ -1,6 +1,8 @@
 package adithya.demo.Todo;
 
 import adithya.demo.Todo.models.Todo;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,10 @@ public class TodoController {
     ResponseEntity<Todo> createTodo(@RequestBody Todo ent){
         return new ResponseEntity<>(todoService.creteTodo(ent), HttpStatus.CREATED);
     }
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",description = "todo retrieved successfully"),
+            @ApiResponse(responseCode = "404",description = "todo not found")
+    })
     @GetMapping("/{id}")
     ResponseEntity<Todo> getTodoById(@PathVariable Long id){
         try {
